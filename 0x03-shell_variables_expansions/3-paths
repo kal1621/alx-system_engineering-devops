@@ -1,6 +1,2 @@
 #!/bin/bash
-count=0
-for dir in $(echo "$PATH" | tr ':' ' '); do
-  count=$((count + 1))
-done
-echo "$count"
+echo "$PATH" | tr -cd ':' | awk '{print length}' | awk '{print $0 + 1}'
